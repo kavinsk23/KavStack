@@ -46,6 +46,13 @@ const meta = {
         defaultValue: { summary: "md" },
       },
     },
+    rounded: {
+      control: "boolean",
+      description: "Whether the button is fully rounded (pill shape)",
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
     disabled: {
       control: "boolean",
       description: "Whether the button is disabled",
@@ -172,6 +179,38 @@ export const AllVariants: Story = {
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="danger">Danger</Button>
+    </div>
+  ),
+};
+
+/**
+ * Fully rounded (pill-shaped) buttons.
+ */
+export const Rounded: Story = {
+  args: {
+    rounded: true,
+    children: "Rounded Button",
+  },
+};
+
+/**
+ * All rounded variants side by side for comparison.
+ */
+export const AllRoundedVariants: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-4 items-center">
+      <Button variant="primary" rounded>
+        Primary Pill
+      </Button>
+      <Button variant="secondary" rounded>
+        Secondary Pill
+      </Button>
+      <Button variant="ghost" rounded>
+        Ghost Pill
+      </Button>
+      <Button variant="danger" rounded>
+        Danger Pill
+      </Button>
     </div>
   ),
 };

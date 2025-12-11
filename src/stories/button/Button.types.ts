@@ -16,6 +16,12 @@ export interface ButtonProps
   size?: "sm" | "md" | "lg";
 
   /**
+   * Whether the button is fully rounded (pill shape)
+   * @default false
+   */
+  rounded?: boolean;
+
+  /**
    * Whether the button is disabled
    * @default false
    */
