@@ -1,26 +1,11 @@
 import type { ButtonProps } from "./Button.types";
 
-/**
- * A customizable button component with multiple variants and sizes.
- * Uses semantic HTML and follows accessibility best practices.
- *
- * @example
- * ```tsx
- * <Button variant="primary" size="md" onClick={handleClick}>
- *   Click me
- * </Button>
- *
- * // Fully rounded pill button
- * <Button variant="primary" rounded>
- *   Pill Button
- * </Button>
- * ```
- */
 export const Button = ({
   variant = "primary",
   size = "md",
   rounded = false,
   disabled = false,
+  iconOnly = false,
   children,
   className = "",
   onClick,
@@ -36,6 +21,8 @@ export const Button = ({
       "bg-transparent hover:bg-gray-100 active:bg-gray-200 text-gray-700 border-gray-300 focus:ring-gray-400",
     danger:
       "bg-error hover:bg-error-dark active:bg-error-dark text-white border-transparent focus:ring-error",
+    outline:
+      "bg-transparent border-primary-500 text-primary-500 hover:bg-primary-100 active:bg-primary-100 focus:ring-primary-500",
   };
 
   // Build size-specific classes
@@ -43,6 +30,11 @@ export const Button = ({
     sm: "px-3 py-1.5 text-sm",
     md: "px-4 py-2 text-base",
     lg: "px-6 py-3 text-lg",
+  };
+  const iconSizeClasses = {
+    sm: "w-8 h-8 p-2 text-sm",
+    md: "w-10 h-10 p-2 text-base",
+    lg: "w-12 h-12 p-3 text-lg",
   };
 
   // Determine border radius
@@ -57,7 +49,9 @@ export const Button = ({
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className={`${baseClasses} ${radiusClass} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      className={`${baseClasses} ${radiusClass} ${variantClasses[variant]} ${
+        iconOnly ? iconSizeClasses[size] : sizeClasses[size]
+      } ${className}`}
       {...props}
     >
       {children}

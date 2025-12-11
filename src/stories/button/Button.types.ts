@@ -7,7 +7,7 @@ export interface ButtonProps
    * The visual style variant of the button
    * @default 'primary'
    */
-  variant?: "primary" | "secondary" | "ghost" | "danger";
+  variant?: "primary" | "secondary" | "ghost" | "danger" | "outline";
 
   /**
    * Size of the button
@@ -31,7 +31,11 @@ export interface ButtonProps
    * Content to be rendered inside the button
    */
   children: React.ReactNode;
-
+  /**
+   * Whether this is an icon-only button (square shape)
+   * @default false
+   */
+  iconOnly?: boolean;
   /**
    * Additional CSS classes
    */
