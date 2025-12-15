@@ -24,7 +24,7 @@ export const Input = ({
   // Build variant-specific classes with hover states
   const variantClasses = {
     default:
-      "border-gray-300 hover:border-gray-400 hover:border-1.5 focus:border-primary-500 focus:ring-primary-500",
+      "border-gray-300 hover:border-gray-400 focus:border-primary-500 focus:ring-primary-500",
     error:
       "border-error hover:border-error-dark focus:border-error focus:ring-error",
     success:
@@ -153,7 +153,12 @@ export const Input = ({
 
       {/* Helper text (only show if no error) */}
       {!errorMessage && helperText && (
-        <span id={helperTextId} className="text-sm text-gray-600">
+        <span
+          id={helperTextId}
+          className={`text-sm ${
+            variant === "success" ? "text-success-dark" : "text-gray-600"
+          }`}
+        >
           {helperText}
         </span>
       )}
