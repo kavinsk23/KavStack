@@ -1,4 +1,4 @@
-import { Button } from "./stories/button/Button";
+import { Button } from "./stories/atoms/button/Button";
 
 const App = () => {
   return (
